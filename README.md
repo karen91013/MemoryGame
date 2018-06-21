@@ -11,3 +11,8 @@ If the cards match, both cards stay flipped over.
 If the cards do not match, both cards are flipped face down.
 
 The game ends once all cards have been correctly matched.
+
+Dependencies:
+Font-Awesome
+Google Coda Font
+Stack Overflow
