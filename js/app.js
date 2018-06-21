@@ -87,6 +87,9 @@ function showCard(element, content){
 
 	if (cardsShown.length < 2){
 		element.className = "card open";
+		storeElement[0].onclick = function() { 
+			return false; 
+		} 
 	}
 
 	else {
@@ -94,7 +97,7 @@ function showCard(element, content){
 		incrementMoves();
 		setTimeout(function(){
 
-			if (cardsShown[0] == cardsShown[1]){
+			if (cardsShown[0] == cardsShown[1] && storeElement[0].id != storeElement[1].id){
 				storeElement[0].className = "card match";
 				storeElement[1].className = "card match";
 				matchedWords.push(storeElement[0]);
@@ -165,13 +168,13 @@ document.getElementsByClassName('restart')[0].onclick = function() {
 	}
 
 //get the modal
-var modal = document.getElementById('myModal');
+const modal = document.getElementById('myModal');
 
 //get the button that opens the modal
-var btn = document.getElementById("myBtn");
+const btn = document.getElementById("myBtn");
 
 //get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+const span = document.getElementsByClassName("close")[0];
 
 //when the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -209,7 +212,6 @@ function startTimer(){
 	} 
 
 	else {
-		const storeTimeElapsed = "I NEVA LOOK BACK DAHLING";
     	return;
   	}
 
