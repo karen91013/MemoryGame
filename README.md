@@ -1,4 +1,9 @@
 # MemoryGame
+<span>
+  <a href = "https://karen91013.github.io/MemoryGame/">Memory Game</a>
+</span>
+
+<div>
 Created a game where players have to flip over cards to locate the pairs that match. 
 
 How the game works:
@@ -14,3 +19,4 @@ The game ends once all cards have been correctly matched.
 
 Dependencies:
 Font-Awesome, Google Coda Font, Stack Overflow
+</div>
