@@ -9,6 +9,8 @@ Created a game where players have to flip over cards to locate the pairs that ma
   </p>
 <p>
 How the game works:
+  </p>
+  <p>
 Gameplay rules are very simple: flip over two hidden cards at a time to locate the ones that match!
   </p>
   <p>
