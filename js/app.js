@@ -22,6 +22,7 @@ const timeElapsed = document.querySelector(".time-elapsed")
 
 makeBoard(deck);
 
+//make da board
 function makeBoard(cards){
 	let shuffledDeck = shuffle(cards);
 	matchedWords =[];
@@ -81,53 +82,58 @@ function starPanel(){
 
 function showCard(element, content){
 	startTimer();
-	element.className = "card open";
-	cardsShown.push(content);
-	storeElement.push(element);
+	if(!storeElement.includes(element) && !element.classList.contains("match")){
+		cardsShown.push(content);
+		storeElement.push(element);
+		console.log(storeElement[0]);
 
-	if (cardsShown.length < 2){
-		element.className = "card open";
-		storeElement[0].onclick = function() { 
-			return false; 
-		} 
-	}
+		if (cardsShown.length < 2){
+			element.className = "card open";
+		}
 
-	else {
-		element.className = "card open";
-		incrementMoves();
-		setTimeout(function(){
+		else {
+			element.className = "card open";
+			incrementMoves();
+			setTimeout(function(){
 
-			if (cardsShown[0] == cardsShown[1] && storeElement[0].id != storeElement[1].id){
-				storeElement[0].className = "card match";
-				storeElement[1].className = "card match";
-				matchedWords.push(storeElement[0]);
-				matchedWords.push(storeElement[1]);
-				if(matchedWords.length==deck.length){
-					winnerWinnerChickenDiner();
+				if (cardsShown[0] == cardsShown[1] && storeElement[0].id != storeElement[1].id){
+					storeElement[0].className = "card match";
+					storeElement[1].className = "card match";
+					matchedWords.push(storeElement[0]);
+					matchedWords.push(storeElement[1]);
+					if(matchedWords.length==deck.length){
+						winnerWinnerChickenDiner();
+						cardsShown = [];
+						storeElement = [];
+						document.getElementsByClassName('deck')[0].innerHTML="";
+						document.getElementsByClassName('stars')[0].innerHTML="";
+					}
+					else{
 					cardsShown = [];
 					storeElement = [];
-					document.getElementsByClassName('deck')[0].innerHTML="";
-					document.getElementsByClassName('stars')[0].innerHTML="";
-				}
-				else{
-				cardsShown = [];
-				storeElement = [];
-				console.log(matchedWords);
+					console.log(matchedWords);
+					}
+
 				}
 
-			}
+				else {
+					storeElement[0].className = "card";
+					storeElement[1].className = "card";
+					cardsShown = [];
+					storeElement = [];
 
-			else {
-				storeElement[0].className = "card";
-				storeElement[1].className = "card";
-				cardsShown = [];
-				storeElement = [];
+				}
 
-			}
+			}, 500);
+		}
 
-		}, 500);
 	}
+	else{
+		return;
+	}
+		
 }
+
 
 function incrementMoves(){
 	counter ++;
